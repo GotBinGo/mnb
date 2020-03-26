@@ -43,7 +43,7 @@ export const INIT_CONFIGURATION: Provider = {
     ShellModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
-  providers: [Title, INIT_CONFIGURATION],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
