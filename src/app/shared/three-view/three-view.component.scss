@@ -1,0 +1,15 @@
+@import "src/theme/theme-variables";
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.main-canvas {
+  // border: 1px solid $table-border-color;
+  background-color: $white;
+  // padding-top: 30px;
+  max-width: 100%;
+}

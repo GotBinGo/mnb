@@ -1,0 +1,137 @@
+<div class="content-container container-fluid p-3">
+  <div class="px-5">
+    <h1 class="text-center my-4">Hibajegyek</h1>
+
+    <div class="tickets-wrapper row" *ngIf="users">
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h3 class="text-center position-relative mb-4">
+          Új
+
+          <div class="position-absolute clip-hexagon add-button cursor-pointer" [routerLink]="['./add']">
+            <i class="fas fa-lg fa-fw fa-plus"></i>
+          </div>
+        </h3>
+
+        <div class="ticket ticket-card" *ngFor="let ticket of ticketsToDo">
+          <div class="header">
+            <h3 class="title">{{ticket.subject}}</h3>
+            <button class="icon-button mx-1 edit-button" type="button" [routerLink]="['./edit', ticket.id]">
+              <i class="fas fa-lg fa-fw fa-pencil-alt"></i>
+            </button>
+            <button class="icon-button icon-button-danger mx-1 delete-button" type="button" (click)="deleteTicket(ticket.id)">
+              <i class="fas fa-lg fa-fw fa-trash"></i>
+            </button>
+          </div>
+          <div class="logo">
+            <img class="logo-circle clip-hexagon" src="assets/apple-touch-icon-152x152.png">
+          </div>
+          <div class="card-footer description">
+            <div class="row">
+              <div class="col-sm-3 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Típus</h6>
+                  <span class="description-text">{{ticket.type | idToArrayItem:ticketTypes:'value':'label'}}</span>
+                </div>
+              </div>
+              <div class="col-sm-6 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Felelős</h6>
+                  <span class="description-text" *ngIf="ticket.assignedToUser">{{ticket.assignedTo | idToArrayItem:users:'email':'name'}}</span>
+                  <span class="description-text" *ngIf="!ticket.assignedToUser">{{ticket.assignedTo}}</span>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="description-block text-center cursor-pointer" (click)="upvoteTicket(ticket.id)">
+                  <h6 class="description-header"><i class="fa fa-thumbs-up"></i></h6>
+                  <span class="description-text">{{ticket.upvoteCount}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h3 class="text-center position-relative mb-4">Megoldás alatt</h3>
+
+        <div class="ticket ticket-card" *ngFor="let ticket of ticketsDoing">
+          <div class="header">
+            <h3 class="title">{{ticket.subject}}</h3>
+            <button class="icon-button mx-1 edit-button" type="button" [routerLink]="['./edit', ticket.id]">
+              <i class="fas fa-lg fa-fw fa-pencil-alt"></i>
+            </button>
+            <button class="icon-button icon-button-danger mx-1 delete-button" type="button" (click)="deleteTicket(ticket.id)">
+              <i class="fas fa-lg fa-fw fa-trash"></i>
+            </button>
+          </div>
+          <div class="logo">
+            <img class="logo-circle clip-hexagon" src="assets/apple-touch-icon-152x152.png">
+          </div>
+          <div class="card-footer description">
+            <div class="row">
+              <div class="col-sm-3 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Típus</h6>
+                  <span class="description-text">{{ticket.type | idToArrayItem:ticketTypes:'value':'label'}}</span>
+                </div>
+              </div>
+              <div class="col-sm-6 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Felelős</h6>
+                  <span class="description-text" *ngIf="ticket.assignedToUser">{{ticket.assignedTo | idToArrayItem:users:'email':'name'}}</span>
+                  <span class="description-text" *ngIf="!ticket.assignedToUser">{{ticket.assignedTo}}</span>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="description-block text-center cursor-pointer" (click)="upvoteTicket(ticket.id)">
+                  <h6 class="description-header"><i class="fa fa-thumbs-up"></i></h6>
+                  <span class="description-text">{{ticket.upvoteCount}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h3 class="text-center position-relative mb-4">Megoldott</h3>
+
+        <div class="ticket ticket-card" *ngFor="let ticket of ticketsDone">
+          <div class="header">
+            <h3 class="title">{{ticket.subject}}</h3>
+            <button class="icon-button mx-1 edit-button" type="button" [routerLink]="['./edit', ticket.id]">
+              <i class="fas fa-lg fa-fw fa-pencil-alt"></i>
+            </button>
+            <button class="icon-button icon-button-danger mx-1 delete-button" type="button" (click)="deleteTicket(ticket.id)">
+              <i class="fas fa-lg fa-fw fa-trash"></i>
+            </button>
+          </div>
+          <div class="logo">
+            <img class="logo-circle clip-hexagon" src="assets/apple-touch-icon-152x152.png">
+          </div>
+          <div class="card-footer description">
+            <div class="row">
+              <div class="col-sm-3 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Típus</h6>
+                  <span class="description-text">{{ticket.type | idToArrayItem:ticketTypes:'value':'label'}}</span>
+                </div>
+              </div>
+              <div class="col-sm-6 border-right">
+                <div class="description-block text-center">
+                  <h6 class="description-header">Felelős</h6>
+                  <span class="description-text" *ngIf="ticket.assignedToUser">{{ticket.assignedTo | idToArrayItem:users:'email':'name'}}</span>
+                  <span class="description-text" *ngIf="!ticket.assignedToUser">{{ticket.assignedTo}}</span>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="description-block text-center cursor-pointer" (click)="upvoteTicket(ticket.id)">
+                  <h6 class="description-header"><i class="fa fa-thumbs-up"></i></h6>
+                  <span class="description-text">{{ticket.upvoteCount}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

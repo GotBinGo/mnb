@@ -1,0 +1,12 @@
+<ng-container *ngIf="control.invalid && control.touched">
+  <div>
+    <small class="text-danger">
+      <ng-content></ng-content>
+    </small>
+  </div>
+  <div *ngFor="let error of errors">
+    <small class="text-danger">
+      {{ error }}
+    </small>
+  </div>
+</ng-container>

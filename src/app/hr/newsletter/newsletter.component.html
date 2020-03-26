@@ -1,0 +1,80 @@
+<div class="content-container container-fluid p-3">
+  <div class="px-5 onboarding-container">
+    <h1 class="text-center my-4">Onboarding</h1>
+    <div class="">
+      <form [formGroup]="subjectForm">
+        <label for="subject">Hírlevél tárgya</label>
+        <input type="text" class="form-control" formControlName="subject" >
+      </form>
+    </div>
+    <hr>
+    <div class="mt-4" *ngFor="let user of users; let i = index">
+      <hr *ngIf="i > 0" style="margin-top: 2rem; margin-bottom: 2rem;">
+      <form [formGroup]="getUserForm(user)">
+        <div class="form-group">
+          <div class="d-flex">
+            <label for="'name' + i">Név</label>
+            <button
+              *ngIf="users.length > 1"
+              class="icon-button icon-button-danger ml-auto"
+              matTooltip="Törlés"
+              (click)="deleteUser(user)">
+              <i class="fas fa-lg fa-fw fa-trash"></i>
+            </button>
+          </div>
+          <input
+            formControlName="name"
+            id="'name' + i"
+            type="text"
+            class="form-control"
+            placeholder="Belépő neve"/>
+        </div>
+
+        <div class="form-group">
+          <label for="'role' + i">Technológia</label>
+          <input
+            formControlName="role"
+            id="'role' + i"
+            type="text"
+            class="form-control"
+            placeholder="Belépő technológiai irányultsága"/>
+        </div>
+
+        <div class="form-group">
+          <label for="'description' + i">Bemutatkozás</label>
+          <textarea
+            formControlName="description"
+            id="'description' + i"
+            type="text"
+            class="form-control"
+            maxlength="300"
+            rows="5"
+            placeholder="Bemutatkozás szövege..."></textarea>
+        </div>
+
+        <div class="d-flex flex-row">
+          <label class="mr-2">Profilkép:</label>
+          <label class="mr-2" style="margin-bottom: 0;">{{ user.fileName }}</label>
+          <label class="ml-2" [for]="user.localId" class="btn btn-primary btn-sm" style="margin-bottom: 0;">Kép választása</label>
+          <input type="file" [id]="user.localId" style="display:none;" accept="image/jpeg, image/png" (change)="onFileSelect(user, $event)"/>
+          <div *ngIf="user.image && user.isPreviewGenerating" class="ml-4 sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+          <button class="ml-2 btn btn-primary btn-sm" *ngIf="user.image && !user.isPreviewGenerating" (click)="getPreview(user)">Előnézet</button>
+          <button class="ml-2 btn btn-secondary btn-sm" *ngIf="user.image && !user.isPreviewGenerating" (click)="cropProfilePicture(user)">Kép szerkesztése</button>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex">
+      <div class="ml-auto">
+        <button class="btn btn-primary" matTooltip="Belépő hozzáadása" (click)="addUser()"><i class="fas fa-fw fa-user-plus"></i></button>
+        <button class="btn btn-primary ml-1" [disabled]="sendButtonInactive()" (click)="sendOnBoardingNewsletter()">Kiküldés</button>
+      </div>
+    </div>
+  </div>
+</div>

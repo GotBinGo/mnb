@@ -1,0 +1,180 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+@import "src/theme/table";
+
+html,
+body {
+  background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $color-primary;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.clip-hexagon {
+  clip-path: polygon(5% 25%, 5% 75%, 50% 100%, 95% 75%, 95% 25%, 50% 0%);
+}
+
+.navbar {
+  padding: 0;
+  height: $navbar-height;
+}
+
+#navbar-menu {
+  transform: skewX(-20deg);
+}
+
+.navbar-dark .navbar-nav .nav-item-container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-item {
+  font-weight: bold;
+  transform: skewX(20deg);
+}
+
+.navbar-dark .navbar-search .search-bar-container,
+.navbar-dark .navbar-profile {
+  transform: skewX(20deg);
+}
+
+.navbar-dark .navbar-search {
+  background-color: rgba(#ffffff, 0.3);
+  .search-bar {
+    outline: none;
+    background-color: transparent;
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #ffffff;
+      opacity: 1; /* Firefox */
+    }
+  }
+}
+
+.navbar-dark .navbar-nav .nav-item-container:hover {
+  background-color: rgba($black, 0.3);
+}
+
+.form-control.ng-invalid.ng-touched,
+.ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: theme-color("danger");
+  border-left-width: 4px;
+}
+
+.jumbotron {
+  border: 1px solid $table-border-color;
+}
+
+.btn {
+  &.btn-fw-sm {
+    width: 80px;
+  }
+  &.btn-fw {
+    width: 120px;
+  }
+  &.btn-fw-dbl {
+    width: 240px;
+  }
+}
+
+.icon-button,
+.icon {
+  width: $icon-button-size;
+  height: $icon-button-size;
+  line-height: $icon-button-size;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  background-color: transparent;
+}
+
+.icon-button {
+  color: transparentize(theme-color("primary"), $amount: 0.5);
+  &:hover {
+    color: theme-color("primary");
+  }
+  &.icon-button-danger:hover {
+    color: theme-color("danger");
+  }
+}
+
+.loader {
+  border: 8px solid transparentize($color-primary, 0.75);
+  border-top: 8px solid $color-primary;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 0.7s ease infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cdk-overlay-pane .mat-dialog-container {
+  padding: 0;
+  .modal-header {
+    background-color: $color-primary;
+    .modal-title {
+      color: rgba($white, 0.75);
+    }
+  }
+  .modal-body {
+    min-height: 100px;
+  }
+}
+
+.cdk-overlay-container {
+  z-index: 1500;
+
+  .loader-backdrop {
+    cursor: wait;
+    background-color: rgba(0, 0, 0, 0.32);
+  }
+}
+
+.mat-tooltip {
+  margin-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
+  background-color: $color-primary;
+  font-size: 0.7rem;
+  white-space: pre-line;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.col-form-label.required::after {
+  content: " *";
+  color: red;
+}
+
+legend {
+  font-size: 1.3rem;
+}

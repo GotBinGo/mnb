@@ -1,0 +1,43 @@
+.content {
+  padding: 15px;
+}
+
+.console-title {
+  background-color: gray;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.console {
+  height: 400px;
+  overflow-y: auto;
+  background-color: #ececec;
+  border-radius: 3px;
+
+  .entry {
+    margin-top: 15px;
+    padding: 0 15px;
+    border-top: 1px solid gray;
+
+    &:last-of-type {
+      margin-bottom: 30px;
+    }
+
+    .time {
+      font-size: 11px;
+      text-align: end;
+      > span {
+        background-color: white;
+        padding: 1px;
+      }
+    }
+
+    &.log {
+    }
+
+    &.error {
+      color: #b11010;
+    }
+  }
+}

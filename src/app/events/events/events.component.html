@@ -1,0 +1,65 @@
+<div class="content-container container-fluid p-3">
+  <div class="px-md-5">
+    <h1 class="text-center my-md-4">Események</h1>
+
+    <div class="timeline">
+      <div class="timeline-icon default clip-hexagon">
+        <i class="fa fa-clock"></i>
+      </div>
+
+      <div *ngIf="events && events.length > 0">
+        <div class="event event-card" *ngFor="let event of events" [class.past]="event.finished">
+          
+          <div class="timeline-icon clip-hexagon" [style.background]="!event.finished && event.color">
+            <i class="fa {{event.icon || 'fa-calendar'}}"></i>
+          </div>
+
+          <ng-container *ngIf="!event.finished; else past">
+
+            <div class="header">
+              <div class="date text-primary">
+                <span>{{event.startDate | date:'yyyy.MM.dd'}} </span> <i class="fa fa-clock"></i> <span class="time"> {{event.startDate | date:'HH:mm'}}</span>
+                <span class="dash"> - </span>
+                <span>{{event.endDate | date:'yyyy.MM.dd'}} </span> <i class="fa fa-clock"></i> <span class="time"> {{event.endDate | date:'HH:mm'}}</span>
+              </div>
+              
+              <div class="location text-primary" *ngIf="event.location"> 
+                <div class="d-flex">
+                  <div class="mr-2"><i class="fa fa-map-marker-alt"></i></div>
+                  <div>{{event.location}}</div>
+                </div>
+              </div>
+
+              <h3 class="title">{{event.title}}</h3>
+            </div>
+            <div class="card-footer description">
+              <div class="logo">
+                <img class="logo-circle clip-hexagon" src="assets/apple-touch-icon-152x152.png">
+              </div>
+  
+              <span [innerHtml]="event.description"></span>
+            </div>
+
+          </ng-container>
+          <ng-template #past>
+
+            <div class="header">
+              <div class="date text-primary">
+                {{event.startDate | date:'yyyy.MM.dd'}}
+              </div>
+              <h3 class="title">{{event.title}}</h3>
+            </div>
+
+          </ng-template>
+
+          
+        </div>
+      </div>
+      <div *ngIf="events && events.length == 0">
+        <div class="alert alert-info" role="alert">
+          Nem találhatók események!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

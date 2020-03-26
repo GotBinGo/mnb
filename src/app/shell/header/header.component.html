@@ -1,0 +1,67 @@
+<header>
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="40" src="assets/logo.png" alt="AutSoftHub" /> </a>
+    <button
+      class="navbar-toggler mr-3"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbar-menu" class="collapse navbar-collapse bg-dark float-xs-none align-items-stretch" [ngbCollapse]="menuHidden">
+      <!-- Főmenü -->
+      <ul class="navbar-nav">
+        <ng-container *ngFor="let item of menuItems; let i = index;">
+          <div [routerLink]="item.link" class="nav-item-container d-flex align-items-center cursor-pointer" routerLinkActive="{{!item.children && 'active'}}" [routerLinkActiveOptions]="{exact: true}" *ngIf="!item.disabled" (click)="!item.children && menuHidden = true;">
+            <!-- Link -->
+            <li *ngIf="!item.children; else dropdownMenu;" class="nav-item">
+              <a class="nav-link"  >{{ item.title }}</a>
+            </li>
+            <!-- Dropdown -->
+            <ng-template #dropdownMenu>
+              <li ngbDropdown display="dynamic" class="nav-item dropdown" routerLinkActive="active">
+                <a id="dropdown{{ i }}" class="nav-link" ngbDropdownToggle>{{ item.title }}</a>
+                <div ngbDropdownMenu attr.aria-labelledby="dropdown{{ i }}">
+                  <a *ngFor="let child of item.children" class="dropdown-item" [routerLink]="child.link">
+                    {{ child.title }} </a>
+                </div>
+              </li>
+            </ng-template>
+          </div>
+        </ng-container>
+      </ul>
+      
+      <div class="navbar-search ml-auto">
+        <div class="search-bar-container px-3">
+          <input id="search-bar" class="search-bar text-white rounded-0 border-0 h-100" type="text" placeholder="Név..." [(ngModel)]="searchModel" [ngbTypeahead]="search" [resultFormatter]="formatter" [inputFormatter]="formatter" (selectItem)="onSelect($event)" container="body" />
+          <label class="search-bar-icon" for="search-bar"><i class="text-white fas fa-fw fa-search"></i></label>
+        </div>
+      </div>
+
+      <div *ngIf="isKiosk" class="mx-5">
+        <div class="navbar-kiosk-date" (click)="add()">
+          <div class="time">{{date | date: 'HH:mm'}}</div>
+          <div class="date">{{date | date: 'yyyy.MM.dd.'}}</div>
+        </div>
+      </div>
+
+      <!-- Jobb oldali menü -->
+      <div *ngIf="!isKiosk" class="navbar-profile-container px-3 d-flex align-items-center cursor-pointer" (click)="onProfileClick()">
+        <div class="navbar-profile m-auto">
+          <span class="navbar-text align-middle mr-3">
+            {{ name }}
+          </span>
+          <img *ngIf="profilImage" class="clip-hexagon" width="46" height="46" src="data:image/png;base64,{{profilImage}}" alt="ProfilImage">
+        </div>
+      </div>
+      <div *ngIf="!isKiosk" class="navbar-nav d-flex align-items-center cursor-pointer px-3" (click)="logout()">
+        <div class="nav-item">
+          <a class="nav-link" ><i class="fas fa-fw fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

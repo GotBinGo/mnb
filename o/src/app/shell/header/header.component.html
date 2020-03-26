@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand pl-3" routerLink="/"> <img height="40" src="assets/logo.png" alt="AutSoftHub" /> </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbar-menu" class="collapse navbar-collapse h-100 float-xs-none align-items-stretch" [ngbCollapse]="menuHidden">
+      <!-- Főmenü -->
+      <ul class="navbar-nav">
+        <ng-container *ngFor="let item of menuItems; let i = index">
+          <div class="nav-item-container d-flex align-items-center" *ngIf="!item.disabled">
+            <!-- Link -->
+            <li *ngIf="!item.children; else dropdownMenu" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a class="nav-link" [routerLink]="item.link">{{ item.title }}</a>
+            </li>
+            <!-- Dropdown -->
+            <ng-template #dropdownMenu>
+              <li ngbDropdown display="dynamic" class="nav-item dropdown" routerLinkActive="active">
+                <a id="dropdown{{ i }}" class="nav-link" ngbDropdownToggle>{{ item.title }}</a>
+                <div ngbDropdownMenu attr.aria-labelledby="dropdown{{ i }}">
+                  <a *ngFor="let child of item.children" class="dropdown-item" [routerLink]="child.link">
+                    {{ child.title }} </a>
+                </div>
+              </li>
+            </ng-template>
+          </div>
+        </ng-container>
+      </ul>
+      <div class="ml-auto navbar-search">
+        <div class="search-bar-container h-100 px-3">
+          <input id="search-bar" class="search-bar text-white rounded-0 border-0 h-100" type="text" placeholder="Név, iroda, tárgyaló..." />
+          <label for="search-bar"><i class="text-white fas fa-fw fa-search"></i></label>
+        </div>
+      </div>
+      <!-- Jobb oldali menü -->
+      <div class="px-3 border-right d-flex align-items-center">
+        <div class="navbar-profile">
+          <span class="navbar-text align-middle mr-3">
+            {{ name }}
+          </span>
+          <img *ngIf="profilImage" class="clip-hexagon" width="46" height="46" src="data:image/png;base64,{{profilImage}}" alt="ProfilImage">
+        </div>
+      </div>
+      <div class="navbar-nav d-flex align-items-center px-3">
+        <div class="nav-item cursor-pointer">
+          <a class="nav-link" (click)="logout()"><i class="fas fa-fw fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

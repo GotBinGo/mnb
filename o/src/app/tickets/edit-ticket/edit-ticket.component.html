@@ -1,0 +1,77 @@
+<div class="content-container p-3">
+  <div class="px-5">
+    <h1 class="text-center my-4">{{(ticketId) ? 'Hibajegy módosítása' : 'Új hibajegy'}}</h1>
+
+    <div class="user-data jumbotron bg-light py-4">
+      <form [formGroup]="ticketForm">
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="subject">Tárgy</label>
+            <input formControlName="subject" id="subject" type="text" class="form-control" placeholder="Tárgy" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="details">Megjegyzés</label>
+            <input formControlName="details" id="details" type="text" class="form-control" placeholder="Megjegyzés" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="details">Típus</label>
+            <!-- <input formControlName="details" id="details" type="text" class="form-control" placeholder="Típus" /> -->
+            <ng-select
+              class=""
+              formControlName="type"
+              id="type"
+              [items]="ticketTypes"
+              [clearable]="false"
+              [searchable]="true"
+              placeholder="Típus"
+              bindLabel="label"
+              bindValue="value">
+            </ng-select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="location">Hely</label>
+            <input formControlName="location" id="location" type="text" class="form-control" placeholder="Hely" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="assignedToUser">Személyhez rendelés</label>
+            <mat-slide-toggle
+              class="px-3 py-1"
+              formControlName="assignedToUser"
+              id="assignedToUser">
+            </mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-12 form-group">
+            <label for="assignedTo">Felelős {{ (ticketForm.value.assignedToUser) ? 'személy' : 'hely' }}</label>
+            <input formControlName="assignedTo" id="assignedTo" type="text" class="form-control" placeholder="Felelős" />
+          </div>
+        </div>
+
+        <div class="form-row form-controls">
+          <div class="col-12 form-group text-right">
+            <button type="button" class="btn btn-success btn-fw mr-3" (click)="save()">
+              <i class="fas fa-save"></i> Mentés
+            </button>
+            <button type="button" class="btn btn-danger btn-fw" routerLink="/tickets">
+              <i class="fas fa-times-circle"></i> Mégse
+            </button>
+          </div>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>

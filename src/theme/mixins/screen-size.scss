@@ -1,0 +1,103 @@
+$flex-xs: 575px;
+$flex-sm: 767px;
+$flex-md: 991px;
+$flex-lg: 1199px;
+$flex-xl: 5000px;
+
+@mixin for-lt-xs {
+  //for xs and below
+  @media screen and (max-width: $flex-xs) {
+    @content;
+  }
+}
+
+@mixin for-lt-sm {
+  //for sm and below
+  @media screen and (max-width: $flex-sm) {
+    @content;
+  }
+}
+
+@mixin for-lt-md {
+  //for md and below
+  @media screen and (max-width: $flex-md) {
+    @content;
+  }
+}
+
+@mixin for-lt-lg {
+  //for lg and below
+  @media screen and (max-width: $flex-lg) {
+    @content;
+  }
+}
+
+@mixin for-lt-xl {
+  //for xl and below
+  @media screen and (max-width: $flex-xl) {
+    @content;
+  }
+}
+
+@mixin for-xs {
+  //for xs and below
+  @media screen and (max-width: $flex-xs) {
+    @content;
+  }
+}
+
+@mixin for-sm {
+  //for sm
+  @media screen and (min-width: calc(#{$flex-xs} + 1px)) and (max-width: $flex-sm) {
+    @content;
+  }
+}
+
+@mixin for-md {
+  //for md
+  @media screen and (min-width: calc(#{$flex-sm} + 1px)) and (max-width: $flex-md) {
+    @content;
+  }
+}
+
+@mixin for-lg {
+  //for lg
+  @media screen and (min-width: calc(#{$flex-md} + 1px)) and (max-width: $flex-lg) {
+    @content;
+  }
+}
+
+@mixin for-xl {
+  //for xl
+  @media screen and (min-width: calc(#{$flex-lg} + 1px)) and (max-width: $flex-xl) {
+    @content;
+  }
+}
+
+@mixin for-gt-xs {
+  //for above xs
+  @media screen and (min-width: calc(#{$flex-xs} + 1px)) {
+    @content;
+  }
+}
+
+@mixin for-gt-sm {
+  //for above sm
+  @media screen and (min-width: calc(#{$flex-sm} + 1px)) {
+    @content;
+  }
+}
+
+@mixin for-gt-md {
+  //for above md
+  @media screen and (min-width: calc(#{$flex-md} + 1px)) {
+    @content;
+  }
+}
+
+@mixin for-gt-lg {
+  //for above lg
+  @media screen and (min-width: calc(#{$flex-lg} + 1px)) {
+    @content;
+  }
+}

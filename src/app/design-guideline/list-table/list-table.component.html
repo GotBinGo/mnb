@@ -1,0 +1,40 @@
+<h2>Listázó táblázat</h2>
+<div class="table-container jumbotron p-0 bg-light">
+
+  <table class="table-controls bg-transparent" mat-table [dataSource]="dataSource" matSort matSortActive="optikus" matSortDirection="asc" matSortDisableClear>
+    <ng-container matColumnDef="optikus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Optikus </th>
+      <td mat-cell *matCellDef="let element"> {{element.optikus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="datum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Dátum </th>
+      <td mat-cell *matCellDef="let element"> {{element.datum | date: 'yyyy. MM. dd. hh:mm:ss'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modell </th>
+      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Státusz </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="controls">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button class="icon-button m-1" (click)="onView(element)" matTooltip="Megtekintés"><i class="fas fa-lg fa-fw fa-eye"></i></button>
+        <button class="icon-button m-1" matTooltip="Szerkesztés"><i class="fas fa-lg fa-fw fa-pencil-alt"></i></button>
+        <button class="icon-button icon-button-danger m-1" matTooltip="Törlés"><i class="fas fa-lg fa-fw fa-trash"></i></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: dataSource.displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator class="bg-transparent" [pageSizeOptions]="dataSource.pageSizeOptions" [pageSize]="dataSource.pageSizeOptions[0]" showFirstLastButtons></mat-paginator>
+
+</div>

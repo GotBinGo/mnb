@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title">Profilkép kivágása</h4>
+  <div class="text-right">
+      <button class="btn btn-success btn-fw-sm" (click)="close(true)">Ok</button>
+      <button class="btn btn-secondary btn-fw-sm ml-2" (click)="close(false)">Mégse</button>
+  </div>
+</div>
+<div class="modal-body">
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="1 / 1"
+    format="jpg"
+    (imageCropped)="imageCropped($event)"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+</div>

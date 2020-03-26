@@ -1,0 +1,43 @@
+<div class="content-container container-fluid p-3">
+  <div class="px-5">
+    <h1 class="text-center my-4">Események</h1>
+
+    <div class="timeline">
+      <div class="timeline-icon default clip-hexagon">
+        <i class="fa fa-clock"></i>
+      </div>
+      <div class="timeline-icon default clip-hexagon add-button cursor-pointer" [routerLink]="['./add']">
+        <i class="fas fa-lg fa-fw fa-plus"></i>
+      </div>
+
+      <div *ngIf="events && events.length > 0">
+        <div class="event event-card" *ngFor="let event of events">
+          <div class="timeline-icon clip-hexagon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <div class="header">
+            <h3 class="title">{{event.title}}</h3>
+            <div class="date text-primary">{{event.date | date:'yyyy.MM.dd'}} <i class="fa fa-clock"></i> <span class="time"> {{event.date | date:'HH:mm'}}</span></div>
+            <button class="icon-button mx-1 edit-button" type="button" [routerLink]="['./edit', event.id]">
+              <i class="fas fa-lg fa-fw fa-pencil-alt"></i>
+            </button>
+            <button class="icon-button icon-button-danger mx-1 delete-button" type="button" (click)="deleteEvent(event.id)">
+              <i class="fas fa-lg fa-fw fa-trash"></i>
+            </button>
+          </div>
+          <div class="logo">
+            <img class="logo-circle clip-hexagon" src="assets/apple-touch-icon-152x152.png">
+          </div>
+          <div class="card-footer description">
+            <span>{{event.description}}</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="events && events.length == 0">
+        <div class="alert alert-info" role="alert">
+          Nem találhatók események!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

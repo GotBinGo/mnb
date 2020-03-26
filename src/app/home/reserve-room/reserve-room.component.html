@@ -1,0 +1,63 @@
+<div class="modal-header" *ngIf="!!title">
+  <h4 class="modal-title">{{ title }}</h4>
+</div>
+<div class="modal-body">
+  <div class="form-row">
+    <div class="col-5 form-group">
+      <label for="datepicker">Időpont</label>
+      <div class="input-group">
+        <input [matDatepicker]="datepicker" [(ngModel)]="date" id="date" type="text" class="form-control" placeholder="Időpont" />
+        <mat-datepicker #datepicker></mat-datepicker>
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="datepicker.open()"><i class="fas fa-calendar text-white"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 form-group">
+      <label for="datepicker">Óra</label>
+      <ng-select appendTo="body"
+        class=""
+        [(ngModel)]="hour"
+        id="hour"
+        [items]="hours"
+        [clearable]="false"
+        [searchable]="true"
+        placeholder="Óra"
+        bindLabel="label"
+        bindValue="value">
+      </ng-select>
+    </div>
+    <div class="col-2 form-group">
+      <label for="datepicker">Perc</label>
+      <ng-select appendTo="body"
+        class=""
+        [(ngModel)]="minute"
+        id="minute"
+        [items]="minutes"
+        [clearable]="false"
+        [searchable]="true"
+        placeholder="Perc"
+        bindLabel="label"
+        bindValue="value">
+      </ng-select>
+    </div>
+    <div class="col-3 form-group border-left">
+      <label for="datepicker">Intervallum</label>
+      <ng-select appendTo="body"
+        class=""
+        [(ngModel)]="interval"
+        id="interval"
+        [items]="intervals"
+        [clearable]="false"
+        [searchable]="true"
+        bindLabel="label"
+        bindValue="value"
+        [addTag]="addTagFn">
+      </ng-select>
+    </div>
+  </div>
+</div>
+<div class="modal-footer text-right">
+  <button class="btn btn-success btn-fw" (click)="ok()">Ok</button>
+  <button class="btn btn-default btn-fw-sm" (click)="close()">Mégse</button>
+</div>

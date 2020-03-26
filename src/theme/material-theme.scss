@@ -1,0 +1,47 @@
+@import "theme/theme-variables";
+@import "~@angular/material/theming";
+
+$p-bg: $color-primary;
+$p-contrast: white;
+$mat-palette: (
+  50: $p-bg,
+  100: $p-bg,
+  200: $p-bg,
+  300: $p-bg,
+  400: $p-bg,
+  500: $p-bg,
+  600: $p-bg,
+  700: $p-bg,
+  800: $p-bg,
+  900: $p-bg,
+  A100: $p-bg,
+  A200: $p-bg,
+  A400: $p-bg,
+  A700: $p-bg,
+  contrast: (
+    50: $p-contrast,
+    100: $p-contrast,
+    200: $p-contrast,
+    300: $p-contrast,
+    400: $p-contrast,
+    500: $p-contrast,
+    600: $p-contrast,
+    700: $p-contrast,
+    800: $p-contrast,
+    900: $p-contrast,
+    A100: $p-contrast,
+    A200: $p-contrast,
+    A400: $p-contrast,
+    A700: $p-contrast
+  )
+);
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+// Define the theme.
+$app-primary: mat-palette($mat-palette);
+$app-accent: mat-palette($mat-palette, A200, A100, A400);
+$app-theme: mat-light-theme($app-primary, $app-accent);
+@include angular-material-theme($app-theme);

@@ -1,0 +1,18 @@
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+.navbar-kiosk-date {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+
+  .time {
+    font-size: 26px;
+  }
+
+  .date {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap-grid";
+
+@include media-breakpoint-up(lg) {
+  .right-panel {
+    transition: 0.25s all;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<div class="container-fluid h-100 p-3">
+  <div class="h-100 d-flex flex-column">
+
+    <ng-container *ngIf="roomLabel">
+      <div class="d-flex border-bottom">
+        <h1>
+          {{roomLabel}}
+        </h1>
+        <div class="d-flex ml-auto align-items-center">
+          <ng-container *ngIf="!isKiosk">
+            <a class="text-secondary cursor-pointer pr-3" title="Tárgyaló foglalása" *ngIf="isReserveRoomButtonVisible(localRoom)" (click)="reserveRoom(localRoom)"><i class="fas fa-calendar fa-2x"></i></a>
+          </ng-container>
+          <a class="text-primary cursor-pointer" title="Bezárás" (click)="close.emit()"><i class="fas fa-times fa-2x"></i></a>
+        </div>
+      </div>
+
+      <div class="card p-3" *ngIf="localReservations && localReservations.schedules">
+        <h3>Foglalások</h3>
+
+        <div *ngIf="!isRoomCurrentlyReserved()" class="mt-2"> 
+          <div class="alert alert-success" role="alert">
+            Jelenleg nem foglalt
+          </div>
+
+          <hr *ngIf="localReservations.schedules.length">
+        </div>
+
+        <div *ngFor="let sched of localReservations.schedules">
+          <div class="reserve-card" [class.ongoing]="sched.start <= currentTime">
+            <div class="date-time d-flex">
+              <div>
+                <i class="fas fa-calendar mr-2"></i>
+              </div>
+
+              <div>
+                <div class="d-inline-block">
+                  <span class="time"> {{sched.start | date:'yyyy.MM.dd'}} </span>
+                  <i class="fa fa-clock mx-1"></i>
+                  <span class="time"> {{sched.start | date:'HH:mm'}} </span>
+                  <span class="dash"> - </span>
+                </div>
+                
+                <div class="d-inline-block">
+                  <span class="time"> {{sched.end | date:'yyyy.MM.dd'}} </span>
+                  <i class="fa fa-clock mx-1"></i>
+                  <span class="time"> {{sched.end | date:'HH:mm'}} </span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="subject">
+              <div class="d-flex">
+                <div><i class="far fa-address-book mr-2"></i></div>
+                <div><span > <a href="#" (click)="navToUser(sched.subject)">{{sched.subject}}</a></span></div>
+              </div>              
+            </div>
+          </div>
+
+          <hr *ngIf="localReservations.schedules.length > 1 && sched.start <= currentTime && sched.end > currentTime">
+
+        </div>
+      </div>
+
+      <div class="row scroll-y" #usersScroll>
+        Hella
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 py-2" *ngFor="let user of localUsers">
+
+            <div class="user user-card" >
+                <div class="header d-flex align-items-center">
+                  <i class="pr-1" [ngClass]="getStatus(user.availability)" title="{{getStatusTitle(user.availability)}}"></i>
+                  <h3 class="title d-inline-block">{{user.name}}</h3>
+                </div>
+                <div class="logo">
+                  <img class="logo-circle clip-hexagon" src="data:image/png;base64,{{user.picture || dummyProfile}}">
+                </div>
+                <div class="card-footer description">
+                  <div class="row">
+                    <div class="col-3 border-right">
+                      <div class="description-block text-center">
+                        <a href="#"><h6 class="description-header"><i class="fa fa-briefcase"></i></h6></a>
+                        <a href="#"><span class="description-text">{{user.officeLocation}}</span></a>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <div class="description-block text-center">
+                        <a [href]="getUserEmailHref(user)"><h6 class="description-header"><i class="fa fa-envelope"></i></h6></a>
+                        <a [href]="getUserEmailHref(user)"><span class="description-text">{{user.email}}</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+</div>
+
+
+
