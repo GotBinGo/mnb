@@ -5,7 +5,7 @@
     <ul class="products-list row">
       <li class="item-wrapper col-xl-3 col-lg-6 col-md-12" *ngFor="let item of links">
         <div class="item d-flex" (click)="openLink(item)">
-          <div class="item-img text-white clip-hexagon" [class.bg-primary]="item.icon">
+          <div class="item-img text-white " [class.bg-primary]="item.icon">
             <i *ngIf="item.icon" [className]="item.icon"></i>
             <img *ngIf="item.imgSrc" [src]="item.imgSrc" />
           </div>

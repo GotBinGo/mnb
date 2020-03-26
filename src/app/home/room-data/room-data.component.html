@@ -17,7 +17,7 @@
       <div class="card p-3" *ngIf="localReservations && localReservations.schedules">
         <h3>Foglalások</h3>
 
-        <div *ngIf="!isRoomCurrentlyReserved()" class="mt-2"> 
+        <div *ngIf="!isRoomCurrentlyReserved()" class="mt-2">
           <div class="alert alert-success" role="alert">
             Jelenleg nem foglalt
           </div>
@@ -39,7 +39,7 @@
                   <span class="time"> {{sched.start | date:'HH:mm'}} </span>
                   <span class="dash"> - </span>
                 </div>
-                
+
                 <div class="d-inline-block">
                   <span class="time"> {{sched.end | date:'yyyy.MM.dd'}} </span>
                   <i class="fa fa-clock mx-1"></i>
@@ -54,7 +54,7 @@
               <div class="d-flex">
                 <div><i class="far fa-address-book mr-2"></i></div>
                 <div><span > <a href="#" (click)="navToUser(sched.subject)">{{sched.subject}}</a></span></div>
-              </div>              
+              </div>
             </div>
           </div>
 
@@ -73,7 +73,7 @@
                   <h3 class="title d-inline-block">{{user.name}}</h3>
                 </div>
                 <div class="logo">
-                  <img class="logo-circle clip-hexagon" src="data:image/png;base64,{{user.picture || dummyProfile}}">
+                  <img class="logo-circle " src="data:image/png;base64,{{user.picture || dummyProfile}}">
                 </div>
                 <div class="card-footer description">
                   <div class="row">

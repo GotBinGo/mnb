@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="40" src="assets/logo.png" alt="AutSoftHub" /> </a>
+    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="40" src="assets/logo.png" alt="Raccoin" /> </a>
     <button
       class="navbar-toggler mr-3"
       type="button"
@@ -33,7 +33,7 @@
           </div>
         </ng-container>
       </ul>
-      
+
       <div class="navbar-search ml-auto">
         <div class="search-bar-container px-3">
           <input id="search-bar" class="search-bar text-white rounded-0 border-0 h-100" type="text" placeholder="Név..." [(ngModel)]="searchModel" [ngbTypeahead]="search" [resultFormatter]="formatter" [inputFormatter]="formatter" (selectItem)="onSelect($event)" container="body" />
@@ -54,7 +54,7 @@
           <span class="navbar-text align-middle mr-3">
             {{ name }}
           </span>
-          <img *ngIf="profilImage" class="clip-hexagon" width="46" height="46" src="data:image/png;base64,{{profilImage}}" alt="ProfilImage">
+          <img *ngIf="profilImage" class="rounded-circle" width="46" height="46" src="data:image/png;base64,{{profilImage}}" alt="ProfilImage">
         </div>
       </div>
       <div *ngIf="!isKiosk" class="navbar-nav d-flex align-items-center cursor-pointer px-3" (click)="logout()">

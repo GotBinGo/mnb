@@ -34,35 +34,6 @@ export class HeaderComponent implements OnInit {
       hideInKiosk: false
     },
     {
-      title: 'Események',
-      link: '/events',
-      disabled: false,
-      hideInKiosk: false
-    },
-    {
-      title: 'Éttermek',
-      link: '/ettermek',
-      disabled: false
-    },
-    {
-      title: 'Hibajegyek',
-      link: '/tickets',
-      disabled: true,
-      hideInKiosk: true
-    },
-    {
-      title: 'Linkek',
-      link: '/links',
-      disabled: false,
-      hideInKiosk: true
-    },
-    {
-      title: 'HR',
-      children: [{ title: 'Hírlevél - Onboarding', link: '/hr/newsletter' }],
-      disabled: this.notInRole([Roles.HR]),
-      hideInKiosk: true
-    },
-    {
       title: 'Guideline',
       children: [
         { title: 'Matrix', link: '/guideline/matrix' },

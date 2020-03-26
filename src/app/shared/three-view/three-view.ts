@@ -183,7 +183,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
     this.controls.minDistance = 25;
-    this.controls.maxDistance = 400;
+    this.controls.maxDistance = 800;
     this.controls.autoRotate = this.autoRotate;
     this.controls.enablePan = false;
     this.controls.enableKeys = false;
@@ -254,7 +254,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
       const maxXYZ = 4.3;
       o.scale.multiplyScalar(250 / maxXYZ);
       if (name === 'FALAK') {
-        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#ff0000' });
+        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#33335d' });
       }
       if (name === 'IRODAK') {
         o.position.y = 0.2;
@@ -264,26 +264,26 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         for (const oo of o.children) {
           const iroda = oo as THREE.Mesh;
           const labelText = getIrodaLabel(iroda.name.split('_')[0]);
-          iroda.material = new THREE.MeshPhysicalMaterial({ color: '#110000', opacity: 0.3, transparent: true });
-          const geometry = new THREE.TextBufferGeometry(labelText, {
-            font: this.font,
-            size: 3,
-            height: 0.1,
-            curveSegments: 2
-          });
-          // const object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0x7d0a27 }));
-          const object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0xffffff }));
-          (object.material as any).emissive.setHex(0xffffff);
-          object.name = labelText;
-          object.rotateX(-Math.PI / 2);
-          object.rotateZ(Math.PI / 8);
-          iroda.geometry.computeBoundingBox();
-          geometry.computeBoundingBox();
-          const oCenter = iroda.geometry.boundingBox.getCenter(iroda.position.clone()).multiplyScalar(250 / maxXYZ);
-          const centerOffset = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
-          // const centerOffsetZ = -0.5 * (geometry.boundingBox.max.z - geometry.boundingBox.min.z);
-          object.position.set(oCenter.x + centerOffset, oCenter.y + 1, oCenter.z + 5);
-          labels.add(object);
+          iroda.material = new THREE.MeshPhysicalMaterial({ color: '#000011', opacity: 0.3, transparent: true });
+          // const geometry = new THREE.TextBufferGeometry(labelText, {
+          //   font: this.font,
+          //   size: 3,
+          //   height: 0.1,
+          //   curveSegments: 2
+          // });
+          // // const object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0x33335d }));
+          // const object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: 0xffffff }));
+          // (object.material as any).emissive.setHex(0xffffff);
+          // object.name = labelText;
+          // object.rotateX(-Math.PI / 2);
+          // object.rotateZ(Math.PI / 8);
+          // iroda.geometry.computeBoundingBox();
+          // geometry.computeBoundingBox();
+          // const oCenter = iroda.geometry.boundingBox.getCenter(iroda.position.clone()).multiplyScalar(250 / maxXYZ);
+          // const centerOffset = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+          // // const centerOffsetZ = -0.5 * (geometry.boundingBox.max.z - geometry.boundingBox.min.z);
+          // object.position.set(oCenter.x + centerOffset, oCenter.y + 1, oCenter.z + 5);
+          // labels.add(object);
         }
         this.scene.add(labels);
         this.targyalo.subscribe(x => {
