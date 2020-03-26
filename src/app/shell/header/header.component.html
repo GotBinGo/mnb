@@ -1,7 +1,11 @@
 <header>
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="40" src="assets/logo.png" alt="Raccoin" /> </a>
-    <button
+    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="32" src="assets/logo.png" alt="Raccoin" /> </a>
+    <button class="btn text-white" style="font-size: 1.4rem;" (click)="sidenav.opened = !sidenav.opened">
+      <i *ngIf="!sidenav.opened" class="fas fa-fw fa-bars"></i>
+      <i *ngIf="sidenav.opened" class="fas fa-fw fa-times"></i>
+    </button>
+    <!-- <button
       class="navbar-toggler mr-3"
       type="button"
       aria-controls="navbar-menu"
@@ -10,7 +14,7 @@
       [attr.aria-expanded]="!menuHidden"
     >
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
     <div id="navbar-menu" class="collapse navbar-collapse bg-dark float-xs-none align-items-stretch" [ngbCollapse]="menuHidden">
       <!-- Főmenü -->
       <ul class="navbar-nav">

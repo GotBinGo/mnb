@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderMenuItem } from '../models/header-menu-item';
 import { CredentialsService } from '@app/core/authentication/credentials.service';
@@ -21,6 +21,7 @@ import { IdleService } from '@app/core/idle.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() sidenav: any;
   nthClick = new NthClick(9);
 
   menuHidden = true;

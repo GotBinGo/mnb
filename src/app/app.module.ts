@@ -1,4 +1,4 @@
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, APP_INITIALIZER, Provider } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +36,7 @@ export const INIT_CONFIGURATION: Provider = {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     CoreModule,
