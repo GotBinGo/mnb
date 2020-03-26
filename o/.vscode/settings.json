@@ -1,5 +1,0 @@
-{
-  "editor.tabSize": 2,
-  "csharp2ts.propertiesToCamelCase": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}

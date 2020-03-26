@@ -1,8 +1,0 @@
-<div class="modal-header" *ngIf="!!title">
-  <h4 class="modal-title">{{ title }}</h4>
-</div>
-<div class="modal-body"><div [innerHTML]="message"></div></div>
-<div class="modal-footer text-right">
-  <button class="btn {{ options.danger ? 'btn-danger' : 'btn-success'}} btn-fw" (click)="close(true)">{{ options.primaryActionText || 'Ok' }}</button>
-  <button class="btn btn-default btn-fw-sm" (click)="close(false)">Mégse</button>
-</div>
