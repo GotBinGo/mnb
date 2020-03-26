@@ -9,10 +9,11 @@ import { ReserveRoomComponent } from './reserve-room/reserve-room.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material';
+import { HomePopupComponent } from './home-popup/home-popup.component';
 
 @NgModule({
   imports: [CommonModule, HomeRoutingModule, SharedModule, FormsModule, MatDatepickerModule, NgSelectModule],
-  declarations: [HomeComponent, RoomDataComponent, ReserveRoomComponent],
+  declarations: [HomeComponent, RoomDataComponent, ReserveRoomComponent, HomePopupComponent],
   entryComponents: [ReserveRoomComponent]
 })
 export class HomeModule {}

@@ -14,6 +14,8 @@ import { IdleService } from '@app/core/idle.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  popup = { opened: false };
+
   version: string;
   model: any = null;
 

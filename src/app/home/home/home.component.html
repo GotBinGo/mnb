@@ -1,27 +1,10 @@
 <!-- <p>home works!</p>
 <span *ngIf="version">version: {{ version }}</span> -->
-<div class="col h-100">
-
-  <div class="row h-100 position-relative">
-    <div class="{{hasSelected ? 'col-lg-8' : 'col-lg-12'}} col-md-12 col-sm-12 col-xs-12 px-0 mh-100" style="transition: 0.2s all; overflow-y: hidden;">
-      <app-three-view
-        [objModel]="model"
-        (selectedRoom)="roomSelected($event)"
-        [sel]="sel"
-        [targyalo]="targyalo"
-        >
-      </app-three-view>
+<div class="d-flex flex-column justify-content-center">
+  <div class="flex-grow-1">
+    <app-three-view [objModel]="model" (selectedRoom)="roomSelected($event)" [sel]="sel" [targyalo]="targyalo">
+    </app-three-view>
+    <button class="btn btn-primary btn-block" (click)="popup.opened = true">Open popup</button>
   </div>
-  <!-- <div [class.active]="hasSelected" class="right-panel col-lg-4 col-md-12 col-sm-12 col-xs-12 h-100 px-0">
-      <app-room-data
-      [room]="sel"
-      [cUsers]="cUsers"
-      [rooms]="rooms"
-      (close)="closeRoomView()"
-      >
-
-    </app-room-data>
-  </div> -->
 </div>
-
-</div>
+<app-home-popup [popup]="popup"></app-home-popup>

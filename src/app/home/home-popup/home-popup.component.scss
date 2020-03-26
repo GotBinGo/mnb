@@ -1,0 +1,25 @@
+.popup-wrapper {
+  padding-top: 100px;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  transition: all 250ms ease;
+  pointer-events: none;
+  .popup-container {
+    pointer-events: all;
+    background-color: white;
+    height: 100%;
+    transition: all 250ms ease;
+    transform: translateY(100%);
+  }
+  &.opened {
+    background-color: rgba(0, 0, 0, 0.3);
+    .popup-container {
+      transform: translateY(0);
+    }
+  }
+}

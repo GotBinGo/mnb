@@ -1,0 +1,17 @@
+<div class="popup-wrapper" [class.opened]="popup.opened">
+  <div class="popup-container d-flex flex-column">
+    <div class="modal-header d-flex justify-content-between align-items-center">
+      <h4 class="modal-title text-white">Modal title</h4>
+      <a (click)="close()">
+        <i class="fa fa-fw fa-times text-white"></i>
+      </a>
+    </div>
+    <div class="modal-body flex-grow-1">
+      Content....
+    </div>
+    <div class="modal-footer text-right">
+      <button class="btn btn-success btn-fw" (click)="close()">Ok</button>
+    </div>
+  </div>
+</div>
+

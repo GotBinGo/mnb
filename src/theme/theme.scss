@@ -193,6 +193,12 @@ ngb-typeahead-window.dropdown-menu {
   }
 }
 
+.popup-wrapper .popup-container {
+  .modal-header {
+    background-color: $color-primary;
+  }
+}
+
 .cdk-overlay-container {
   z-index: 1500;
 
