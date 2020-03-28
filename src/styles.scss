@@ -46,3 +46,12 @@
 .mat-tab-body-content {
   overflow: hidden !important;
 }
+
+.mat-tab-label-container {
+  background-color: #fafafa;
+  overflow: hidden !important;
+  z-index: 10000000 !important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
