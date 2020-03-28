@@ -104,7 +104,8 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     new THREE.FontLoader().load('/assets/fonts/roboto_regular.typeface.json', font => {
       this.font = font;
       this.http
-        .request('get', '/assets/models/iroda-alap.txt', {
+        // .request('get', '/assets/models/iroda-alap.obj', {
+        .request('get', '/assets/models/posta-alap.obj', {
           observe: 'response',
           responseType: 'blob'
         })
@@ -112,7 +113,8 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         .pipe(finalize(() => (this.isLoading = false)))
         .subscribe(obj => this.initContent(obj, 'ALAP'));
       this.http
-        .request('get', '/assets/models/iroda.txt', {
+        // .request('get', '/assets/models/iroda.obj', {
+        .request('get', '/assets/models/posta-rooms.obj', {
           observe: 'response',
           responseType: 'blob'
         })
@@ -120,14 +122,15 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         .pipe(finalize(() => (this.isLoading = false)))
         .subscribe(obj => this.initContent(obj, 'IRODAK'));
 
-      this.http
-        .request('get', '/assets/models/iroda-falak.txt', {
-          observe: 'response',
-          responseType: 'blob'
-        })
-        .pipe(map(x => x.body))
-        .pipe(finalize(() => (this.isLoading = false)))
-        .subscribe(obj => this.initContent(obj, 'FALAK'));
+      // this.http
+        // // .request('get', '/assets/models/iroda-falak.txt', {
+        // .request('get', '/assets/models/posta-rooms.obj', {
+        //   observe: 'response',
+        //   responseType: 'blob'
+        // })
+        // .pipe(map(x => x.body))
+        // .pipe(finalize(() => (this.isLoading = false)))
+        // .subscribe(obj => this.initContent(obj, 'FALAK'));
     });
 
     this.addLocationIndicator();
@@ -253,7 +256,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
       const maxXYZ = 4.3;
       o.scale.multiplyScalar(250 / maxXYZ);
       if (name === 'FALAK') {
-        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#33335d' });
+        (o.children[0] as any).material = new THREE.MeshBasicMaterial({ color: '#23235d' });
       }
       if (name === 'IRODAK') {
         o.position.y = 0.2;
@@ -263,7 +266,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         for (const oo of o.children) {
           const iroda = oo as THREE.Mesh;
           const labelText = getIrodaLabel(iroda.name.split('_')[0]);
-          iroda.material = new THREE.MeshPhysicalMaterial({ color: '#000011', opacity: 0.3, transparent: true });
+          iroda.material = new THREE.MeshLambertMaterial({ color: '#ffffff', opacity: 0.2, transparent: true });
           // const geometry = new THREE.TextBufferGeometry(labelText, {
           //   font: this.font,
           //   size: 3,
@@ -310,7 +313,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         });
       }
       if (name === 'ALAP') {
-        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#ffe5e2' });
+        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#aaa' });
       }
       this.objects.push(o);
       this.scene.add(o);
