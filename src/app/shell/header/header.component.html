@@ -1,6 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="32" src="assets/logo.png" alt="Raccoin" /> </a>
+    <a class="navbar-brand pl-3" routerLink="/" (click)="menuHidden = true"> <img height="32" src="assets/logo.png" alt="Raccoin" />
+      <!-- <span>
+        Pénzmosó
+      </span> -->
+    </a>
     <button class="btn text-white" style="font-size: 1.4rem;" (click)="sidenav.opened = !sidenav.opened">
       <i *ngIf="!sidenav.opened" class="fas fa-fw fa-bars"></i>
       <i *ngIf="sidenav.opened" class="fas fa-fw fa-times"></i>

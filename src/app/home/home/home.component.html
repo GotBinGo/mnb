@@ -1,16 +1,19 @@
 <!-- <p>home works!</p>
 <span *ngIf="version">version: {{ version }}</span> -->
 <div class="w-100 h-100 d-flex flex-column justify-content-center home-tabs" style="overflow:hidden">
-  <mat-tab-group class="flex-grow-1" headerPosition="below" animationDuration="400ms" mat-stretch-tabs>
+  <mat-tab-group [(selectedIndex)]="selectedIndex" class="flex-grow-1" headerPosition="below" animationDuration="400ms" mat-stretch-tabs>
     <mat-tab>
       <ng-template mat-tab-label>
-        <i class="fas fa-fw fa-home icon"></i>
+        <!-- <i class="fas fa-fw fa-home icon"></i> -->
+        <img [ngStyle]="{'filter': 'grayscale('+ (selectedIndex == 0 ? 0 : 1) +')'}" src="assets/house.svg" style="width: 35px; height: 35px;">
       </ng-template>
       <app-map></app-map>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
-        <i class="fas fa-fw fa-medal icon"></i>
+        <!-- <i class="fas fa-fw fa-medal icon"></i> -->
+        <!-- {{selectedIndex}} -->
+        <img [ngStyle]="{'filter': 'grayscale('+ (selectedIndex == 1 ? 0 : 1) +')'}" src="assets/gold-medal-svgrepo-com.svg" style="width: 35px; height: 35px;">
       </ng-template>
 
       <div class="cont">
@@ -87,7 +90,7 @@
               <img src="assets/coin.png" style="width: 80px; height: 80px;">
             </div>          
             <div class="col-6">
-              <img src="assets/coin.png" style="width: 80px; height: 80px; filter: grayscale(100%);">
+              <img src="assets/coin.png" style="width: 80px; height: 80px; filter: ale(100%);">
             </div>
             <div class="col-6">
               <img src="assets/coin.png" style="width: 80px; height: 80px; filter: grayscale(100%);">
@@ -104,7 +107,8 @@
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
-        <i class="fas fa-fw fa-user icon"></i>
+        <!-- <i class="fas fa-fw fa-user icon"></i> -->
+        <img [ngStyle]="{'filter': 'grayscale('+ (selectedIndex == 2 ? 0 : 1) +')'}" src="assets/profile.svg" style="width: 35px; height: 35px;">
       </ng-template>
       Profile
     </mat-tab>

@@ -57,5 +57,21 @@
 }
 
 .mat-ink-bar {
-  height: 4px !important;
+  height: 3px !important;
+  width: 100% !important;
+  left: 0 !important;
+  // width: 5000px !important;
+  // margin-left: -2500px !important;
+  opacity: 0.7;
+}
+
+.mat-tab-label {
+  opacity: 1 !important;
+  // filter: grayscale(100%);
+}
+
+
+.mat-tab-label:focus {
+  // filter: grayscale(0%);
+  opacity: 1 !important;
 }
