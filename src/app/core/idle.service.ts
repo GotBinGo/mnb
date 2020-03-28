@@ -28,7 +28,7 @@ export class IdleService {
     if (this.idleTimeout) {
       clearTimeout(this.idleTimeout);
     }
-    this.idleTimeout = setTimeout(this.goToIdle, environment.idleTime || 5 * 60_000);
+    this.idleTimeout = setTimeout(this.goToIdle, environment.idleTime || 50 * 60_000);
   };
 
   goToIdle = () => {

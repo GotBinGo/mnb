@@ -49,8 +49,8 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   needRotate = false;
 
   cameraDefaults = {
-    posCamera: new THREE.Vector3(0.0, 25.0, 0.0),
-    posCameraTarget: new THREE.Vector3(0, 0, 0),
+    posCamera: new THREE.Vector3(40.0, 25.0, 0.0),
+    posCameraTarget: new THREE.Vector3(40, 0, 0),
     near: 0.1,
     far: 10000,
     fov: 45,
@@ -82,10 +82,10 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   camPosIndex: number = null;
   cameraAnimationTime = 60 * 1.2 /* s */;
   cameraCurve = new THREE.CubicBezierCurve3(
-    new THREE.Vector3(0, 25, 10),
-    new THREE.Vector3(0, 75, 0),
-    new THREE.Vector3(0, 200, 100),
-    new THREE.Vector3(0, 175, 200)
+    new THREE.Vector3(40, 25, 10),
+    new THREE.Vector3(40, 75, 0),
+    new THREE.Vector3(40, 350, 200),
+    new THREE.Vector3(40, 370, 370)
   );
 
   framerate = 30;
@@ -184,12 +184,12 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     // this.controls.screenSpacePanning = false;
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
-    this.controls.minDistance = 25;
+    this.controls.minDistance = 50;
     this.controls.maxDistance = 800;
     this.controls.autoRotate = this.autoRotate;
     // this.controls.enablePan = false;
     this.controls.enableKeys = false;
-
+    this.controls.target.set( 40, 0, 0);
     this.controls.minPolarAngle = 0.0 * Math.PI;
     this.controls.maxPolarAngle = 0.4 * Math.PI;
     this.controls.minAzimuthAngle = -0.25 * Math.PI;
@@ -267,6 +267,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
           const iroda = oo as THREE.Mesh;
           const labelText = getIrodaLabel(iroda.name.split('_')[0]);
           iroda.material = new THREE.MeshLambertMaterial({ color: '#ffffff', opacity: 0.2, transparent: true });
+          iroda.position.set(iroda.position.x, iroda.position.y + 0.01, iroda.position.z);
           // const geometry = new THREE.TextBufferGeometry(labelText, {
           //   font: this.font,
           //   size: 3,
@@ -376,17 +377,17 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   }
 
   recenter() {
-    const camDiff = Math.abs(this.camera.position.x) + Math.abs(this.camera.position.y - 175) + Math.abs(this.camera.position.z - 200);
+    // const camDiff = Math.abs(this.camera.position.x) + Math.abs(this.camera.position.y - 175) + Math.abs(this.camera.position.z - 200);
 
-    if (camDiff > 1) {
-      this.cameraCurve = new THREE.CubicBezierCurve3(
-        new THREE.Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z),
-        new THREE.Vector3(0, 75, 0),
-        new THREE.Vector3(0, 200, 100),
-        new THREE.Vector3(0, 175, 200)
-      );
+    // if (camDiff > 1) {
+    //   this.cameraCurve = new THREE.CubicBezierCurve3(
+    //     new THREE.Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z),
+    //     new THREE.Vector3(0, 75, 0),
+    //     new THREE.Vector3(0, 200, 100),
+    //     new THREE.Vector3(0, 175, 200)
+    //   );
 
-      this.camPosIndex = 0;
-    }
+    //   this.camPosIndex = 0;
+    // }
   }
 }
