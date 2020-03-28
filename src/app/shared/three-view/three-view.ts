@@ -35,8 +35,8 @@ const getChildByName = (object: THREE.Object3D, name: string) => {
 };
 
 export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-  @Input() width = 600;
-  @Input() height = 820;
+  @Input() width = 500;
+  @Input() height = 1000;
   @Input() sel: Observable<any>;
   @Input() targyalo: Observable<any>;
   selectedObject: any;
