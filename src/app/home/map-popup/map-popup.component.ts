@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-home-popup',
-  templateUrl: './home-popup.component.html',
-  styleUrls: ['./home-popup.component.scss']
+  selector: 'app-map-popup',
+  templateUrl: './map-popup.component.html',
+  styleUrls: ['./map-popup.component.scss']
 })
-export class HomePopupComponent implements OnInit {
+export class MapPopupComponent implements OnInit {
   @Input() popup: any;
 
   constructor() {}

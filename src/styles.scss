@@ -27,6 +27,10 @@
   }
 }
 
+.home-tabs .mat-tab-body-wrapper {
+  flex-grow: 1;
+}
+
 .ng-dropdown-panel {
   z-index: 3000 !important;
 }

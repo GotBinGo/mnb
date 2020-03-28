@@ -1,10 +1,24 @@
 <!-- <p>home works!</p>
 <span *ngIf="version">version: {{ version }}</span> -->
-<div class="d-flex flex-column justify-content-center">
-  <div class="flex-grow-1">
-    <app-three-view [objModel]="model" (selectedRoom)="roomSelected($event)" [sel]="sel" [targyalo]="targyalo">
-    </app-three-view>
-    <button class="btn btn-primary btn-block" (click)="popup.opened = true">Open popup</button>
-  </div>
+<div class="w-100 h-100 d-flex flex-column justify-content-center home-tabs">
+  <mat-tab-group class="flex-grow-1" headerPosition="below" animationDuration="0ms" mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="fas fa-fw fa-home"></i>
+      </ng-template>
+      <app-map></app-map>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="fas fa-fw fa-medal"></i>
+      </ng-template>
+      Medals
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="fas fa-fw fa-user"></i>
+      </ng-template>
+      Profile
+    </mat-tab>
+  </mat-tab-group>
 </div>
-<app-home-popup [popup]="popup"></app-home-popup>

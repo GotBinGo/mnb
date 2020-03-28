@@ -1,0 +1,8 @@
+<div class="h-100 w-100 d-flex flex-column">
+  <button class="btn btn-secondary btn-block" (click)="popup.opened = true">Open popup</button>
+  <div class="flex-grow-1">
+    <app-three-view (selectedRoom)="roomSelected($event)" [sel]="sel" [targyalo]="targyalo">
+    </app-three-view>
+  </div>
+</div>
+<app-map-popup [popup]="popup"></app-map-popup>
