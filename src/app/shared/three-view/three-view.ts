@@ -35,8 +35,8 @@ const getChildByName = (object: THREE.Object3D, name: string) => {
 };
 
 export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-  @Input() width = 1920;
-  @Input() height = 1080;
+  @Input() width = 600;
+  @Input() height = 820;
   @Input() sel: Observable<any>;
   @Input() targyalo: Observable<any>;
   selectedObject: any;
@@ -176,14 +176,15 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   ngAfterViewInit() {
     this.renderer = new THREE.WebGLRenderer({ canvas: this.rendererContainer.nativeElement, antialias: true, alpha: true });
     this.renderer.setSize(this.width, this.height, false);
+    this.scene.background = new THREE.Color( 0xfafafa );
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.screenSpacePanning = false;
+    // this.controls.screenSpacePanning = false;
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.05;
     this.controls.minDistance = 25;
     this.controls.maxDistance = 800;
     this.controls.autoRotate = this.autoRotate;
-    this.controls.enablePan = false;
+    // this.controls.enablePan = false;
     this.controls.enableKeys = false;
 
     this.controls.minPolarAngle = 0.0 * Math.PI;
@@ -309,7 +310,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
         });
       }
       if (name === 'ALAP') {
-        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#ffe5c2' });
+        (o.children[0] as any).material = new THREE.MeshPhysicalMaterial({ color: '#ffe5e2' });
       }
       this.objects.push(o);
       this.scene.add(o);
