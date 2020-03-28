@@ -8,12 +8,14 @@ import { RoomDataComponent } from './room-data/room-data.component';
 import { ReserveRoomComponent } from './reserve-room/reserve-room.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-import { MatDatepickerModule, MatTabsModule, MatIconModule } from '@angular/material';
+import { MatDatepickerModule, MatTabsModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MapComponent } from './map/map.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
 
 @NgModule({
-  imports: [CommonModule, HomeRoutingModule, SharedModule, FormsModule, MatDatepickerModule, NgSelectModule, MatTabsModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MatCardModule, HomeRoutingModule, SharedModule, FormsModule, MatDatepickerModule, NgSelectModule, MatTabsModule, MatIconModule],
   declarations: [HomeComponent, RoomDataComponent, ReserveRoomComponent, MapComponent, MapPopupComponent],
   entryComponents: [ReserveRoomComponent]
 })
