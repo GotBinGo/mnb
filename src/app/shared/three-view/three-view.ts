@@ -49,7 +49,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   needRotate = false;
 
   cameraDefaults = {
-    posCamera: new THREE.Vector3(40.0, 25.0, 0.0),
+    posCamera: new THREE.Vector3(40.0, 25.0, 50.0),
     posCameraTarget: new THREE.Vector3(40, 0, 0),
     near: 0.1,
     far: 10000,
@@ -82,7 +82,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   camPosIndex: number = null;
   cameraAnimationTime = 60 * 1.2 /* s */;
   cameraCurve = new THREE.CubicBezierCurve3(
-    new THREE.Vector3(40, 25, 10),
+    new THREE.Vector3(40, 25, 50),
     new THREE.Vector3(40, 75, 0),
     new THREE.Vector3(40, 350, 200),
     new THREE.Vector3(40, 370, 370)
@@ -189,7 +189,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     this.controls.autoRotate = this.autoRotate;
     // this.controls.enablePan = false;
     this.controls.enableKeys = false;
-    this.controls.target.set( 40, 0, 0);
+    this.controls.target.set( 40, 0, 25);
     this.controls.minPolarAngle = 0.0 * Math.PI;
     this.controls.maxPolarAngle = 0.4 * Math.PI;
     this.controls.minAzimuthAngle = -0.25 * Math.PI;

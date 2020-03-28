@@ -27,6 +27,12 @@
   }
 }
 
+.mat-tab-body-wrapper {
+  top: 47px;
+  width: 100%;
+  position: fixed !important;
+}
+
 .home-tabs .mat-tab-body-wrapper {
   flex-grow: 1;
 }
