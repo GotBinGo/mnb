@@ -14,6 +14,7 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
 import { MedalsComponent } from './medals/medals.component';
 import { DivTextComponent } from './div-text/div-text.component';
 import { RadialProgressComponent } from './radial-progress/radial-progress.component';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { RadialProgressComponent } from './radial-progress/radial-progress.compo
     MatDatepickerModule,
     NgSelectModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    SortablejsModule,
   ],
   declarations: [
     HomeComponent,

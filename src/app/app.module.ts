@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { Title, BrowserModule } from '@angular/platform-browser';
 import { CredentialsService } from './core/authentication/credentials.service';
+import { SortablejsModule } from 'ngx-sortablejs';
+
 
 export function initConfiguration(cs: CredentialsService): Function {
   return async () => {
@@ -39,6 +41,7 @@ export const INIT_CONFIGURATION: Provider = {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    SortablejsModule.forRoot({ animation: 150 }),
     CoreModule,
     ShellModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route

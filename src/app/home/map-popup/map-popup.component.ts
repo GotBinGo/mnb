@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SortablejsOptions } from 'ngx-sortablejs';
 
 @Component({
   selector: 'app-map-popup',
@@ -7,7 +8,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MapPopupComponent implements OnInit {
   @Input() popup: any;
+  normalList1 = [
+    'p1',
+    'p2',
+    'p3',
+  ];
 
+  normalList2 = [
+    'u1',
+    'u2',
+    'u3',
+  ];
+
+  normalOptions: SortablejsOptions = {
+    group: 'normal-group',
+  };
   constructor() {}
 
   ngOnInit() {}
