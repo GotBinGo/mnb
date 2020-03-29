@@ -96,6 +96,35 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     this.initGL();
   }
 
+  Marker(x: number, z: number) {
+    const mk = new THREE.Object3D();
+    THREE.Object3D.call(mk);
+
+    const radius = 3.005;
+    const sphereRadius = 0.0002;
+    const height = 10.05;
+
+    const material = new THREE.MeshPhongMaterial({
+      color: 0x12A155
+    });
+    material.side = THREE.DoubleSide;
+
+    const cone = new THREE.Mesh(new THREE.ConeBufferGeometry(radius, height, 8, 1, true), material);
+    cone.position.y = height * 0.5;
+    cone.rotation.x = Math.PI;
+    cone.position.x = x;
+    cone.position.z = z;
+
+    const sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(sphereRadius, 16, 8), material);
+    sphere.position.y = height * 0.95 + sphereRadius;
+
+
+    mk.add(cone, sphere);
+    return mk;
+  }
+
+  // Marker.prototype = Object.create(THREE.Object3D.prototype);
+
   onInputChanges(changes: SimpleChanges) {}
 
   ngOnInit() {
@@ -318,6 +347,18 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
       }
       this.objects.push(o);
       this.scene.add(o);
+      // this.scene.add(this.Marker(0, 0));
+
+
+
+      this.scene.add(this.Marker(-55, -50));
+      this.scene.add(this.Marker(-45, -70));
+      this.scene.add(this.Marker(-55, -0));
+      this.scene.add(this.Marker(-15, 30));
+
+      this.scene.add(this.Marker(-45, 80));
+
+      this.scene.add(this.Marker(50, 52));
     });
   }
   intersect() {
