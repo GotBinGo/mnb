@@ -10,7 +10,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule, MatTabsModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MapComponent } from './map/map.component';
-import { MapPopupComponent } from './map-popup/map-popup.component';
 import { MedalsComponent } from './medals/medals.component';
 import { DivTextComponent } from './div-text/div-text.component';
 import { RadialProgressComponent } from './radial-progress/radial-progress.component';
@@ -28,14 +27,13 @@ import { ProfilComponent } from './profil/profil.component';
     NgSelectModule,
     MatTabsModule,
     MatIconModule,
-    SortablejsModule,
+    SortablejsModule
   ],
   declarations: [
     HomeComponent,
     RoomDataComponent,
     ReserveRoomComponent,
     MapComponent,
-    MapPopupComponent,
     MedalsComponent,
     DivTextComponent,
     RadialProgressComponent,

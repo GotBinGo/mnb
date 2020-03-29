@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { SearchService } from '@app/core/search/search.service';
 import { IdleService } from '@app/core/idle.service';
+import { PopupService } from '@app/popup.service';
 
 @Component({
   selector: 'app-map',
@@ -9,11 +10,13 @@ import { IdleService } from '@app/core/idle.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  @Input() popup: any;
+  get popup(): any {
+    return this.ps.popup;
+  }
   sel = new ReplaySubject(1);
   targyalo = new ReplaySubject(9); // legyen több ha több a tárgyaló
 
-  constructor(private searchService: SearchService, private idleService: IdleService) {}
+  constructor(private searchService: SearchService, private idleService: IdleService, private ps: PopupService) {}
 
   ngOnInit() {
     this.sel.next('C35');
