@@ -11,7 +11,7 @@ import { CredentialsService } from './core/authentication/credentials.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'AutSoftHub';
+  title = 'Pénz Mosó';
 
   constructor(
     private router: Router,
