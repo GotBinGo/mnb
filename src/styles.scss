@@ -27,12 +27,6 @@
   }
 }
 
-.mat-tab-body-wrapper {
-  top: 47px;
-  width: 100%;
-  position: fixed !important;
-}
-
 .text-gray {
   color: $gray-600;
 }
@@ -55,14 +49,7 @@
 
 .mat-tab-body-content {
   overflow: hidden !important;
-}
-
-.mat-tab-label-container {
-  background-color: #fafafa;
-  overflow: hidden !important;
-  z-index: 10000000 !important;
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   width: 100%;
 }
 
