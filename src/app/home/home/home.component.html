@@ -7,7 +7,7 @@
         <!-- <i class="fas fa-fw fa-home icon"></i> -->
         <img [ngStyle]="{'filter': 'grayscale('+ (selectedIndex == 0 ? 0 : 1) +')'}" src="assets/house3.svg" style="width: 35px; height: 35px;">
       </ng-template>
-      <app-map></app-map>
+      <app-map [popup]="popup"></app-map>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
@@ -32,3 +32,5 @@
     </mat-tab>
   </mat-tab-group>
 </div>
+
+<app-map-popup [popup]="popup"></app-map-popup>

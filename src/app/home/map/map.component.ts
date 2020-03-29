@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { SearchService } from '@app/core/search/search.service';
 import { IdleService } from '@app/core/idle.service';
@@ -9,7 +9,7 @@ import { IdleService } from '@app/core/idle.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  popup = { opened: false, room: '' };
+  @Input() popup: any;
   sel = new ReplaySubject(1);
   targyalo = new ReplaySubject(9); // legyen több ha több a tárgyaló
 

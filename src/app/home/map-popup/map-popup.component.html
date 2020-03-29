@@ -1,6 +1,6 @@
 <div class="popup-wrapper" [class.opened]="popup.opened">
   <div class="popup-container d-flex flex-column">
-    <div class="modal-header d-flex justify-content-between align-items-center">
+    <div class="modal-header flex-shrink-0 d-flex justify-content-between align-items-center">
       <h4 class="modal-title text-white">Feladvány</h4>
       <a (click)="close()">
         <i class="fa fa-fw fa-times text-white"></i>
@@ -43,7 +43,7 @@
         b
       </div>
     </div>
-    <div class="modal-footer text-right">
+    <div class="modal-footer flex-shrink-0 text-right">
       <button class="btn btn-success btn-fw" (click)="close()">Ok</button>
     </div>
   </div>
