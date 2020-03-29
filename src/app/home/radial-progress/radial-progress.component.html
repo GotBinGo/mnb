@@ -1,0 +1,29 @@
+<div
+  class="position-relative"
+  [style.width]="size + 'px'"
+  [style.height]="size + 'px'">
+  <div class="position-absolute">
+    <svg
+       class="progress-ring"
+       viewBox="0 0 120 120"
+       [style.width]="size + 'px'"
+       [style.height]="size + 'px'">
+      <circle #circle
+        class="progress-ring__circle"
+        [style.strokeDasharray]="circ+' '+circ"
+        [style.strokeDashoffset]="offs"
+        stroke="#33335d"
+        stroke-width="8"
+        stroke-linecap="round"
+        fill="transparent"
+        r="52"
+        cx="60"
+        cy="60"/>
+    </svg>
+  </div>
+  <div class="position-absolute w-100 h-100" style="top:0">
+    <div class="position-absolute" style="top:50%; left:50%; transform: translate(-50%, -50%);">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

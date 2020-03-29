@@ -13,6 +13,7 @@ import { MapComponent } from './map/map.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
 import { MedalsComponent } from './medals/medals.component';
 import { DivTextComponent } from './div-text/div-text.component';
+import { RadialProgressComponent } from './radial-progress/radial-progress.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { DivTextComponent } from './div-text/div-text.component';
     MapComponent,
     MapPopupComponent,
     MedalsComponent,
-    DivTextComponent
+    DivTextComponent,
+    RadialProgressComponent
   ],
   entryComponents: [ReserveRoomComponent]
 })
