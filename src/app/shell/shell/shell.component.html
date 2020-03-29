@@ -4,30 +4,44 @@
   <mat-drawer-container class="example-container flex-grow-1" [hasBackdrop]="true">
     <mat-drawer #drawer [opened]="sidenav.opened" mode="over" class="w-100" style="background-color: #33335d;" position="end">
       <div class="h-100 w-100 d-flex flex-column text-white p-3">
+        <h2 class="text-white">Profil</h2>
         <div class="d-flex justify-content-between border-bottom py-3" style="font-size: 1.2rem;;">
           <div>
-            <img class="rounded-circle" width="54" height="54" src="data:image/png;base64,{{dummyProfile}}" alt="ProfilImage">
-            <span class="align-middle ml-3">
-              {{ 'Példa Géza' }}
+            <img class="rounded-circle" width="54" height="54" src="assets/profil-img.png" alt="ProfilImage">
+            <span class="align-middle ml-3" style="font-size: 1.2rem;">
+              <strong>{{ 'Demó Dániel' }}</strong>
             </span>
           </div>
           <div class="text-right d-flex flex-column justify-content-between">
             <div>
-              <span class="mx-1">41</span>
-              <i class="fas fa-fw fa-star"></i>
+              <i class="fas fa-2x fa-fw fa-star"></i>
             </div>
-            <div>
-              <a>
-                <span class="mx-1">Kilépés</span>
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-              </a>
+            <div class="text-center">
+              <span class="mx-1">41</span>
             </div>
           </div>
         </div>
-        <div class="flex-grow-1 d-flex flex-column justify-content-around">
-          <div class="h3 text-uppercase text-center">MENU</div>
-          <div class="h3 text-uppercase text-center">MENU</div>
-          <div class="h3 text-uppercase text-center">MENU</div>
+        <div class="mt-auto d-flex flex-column justify-content-around">
+          <h3 class="text-white">Nyelv</h3>
+          <div class="pb-3 px-5 d-flex justify-content-between">
+            <img width="40" src="assets/flag-hu.png" alt="hu">
+            <img width="40" src="assets/flag-us.png" alt="en">
+            <img width="40" src="assets/flag-de.png" alt="de">
+            <img width="40" src="assets/flag-fr.png" alt="fr">
+          </div>
+          <h3 class="text-white">Közösségi</h3>
+          <div class="pb-3 social d-flex justify-content-between">
+            <i class="fab fa-2x fa-fw fa-youtube"></i>
+            <i class="fab fa-2x fa-fw fa-facebook"></i>
+            <i class="fab fa-2x fa-fw fa-twitter"></i>
+            <i class="fas fa-2x fa-fw fa-globe"></i>
+          </div>
+          <div class="text-center text-small">
+            <a>
+              <span class="mx-1">Kilépés</span>
+              <i class="fas fa-fw fa-sign-out-alt"></i>
+            </a>
+          </div>
         </div>
       </div>
     </mat-drawer>
