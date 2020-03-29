@@ -15,6 +15,7 @@ import { MedalsComponent } from './medals/medals.component';
 import { DivTextComponent } from './div-text/div-text.component';
 import { RadialProgressComponent } from './radial-progress/radial-progress.component';
 import { SortablejsModule } from 'ngx-sortablejs';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { SortablejsModule } from 'ngx-sortablejs';
     MapPopupComponent,
     MedalsComponent,
     DivTextComponent,
-    RadialProgressComponent
+    RadialProgressComponent,
+    ProfilComponent
   ],
   entryComponents: [ReserveRoomComponent]
 })
