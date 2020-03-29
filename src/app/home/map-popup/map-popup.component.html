@@ -13,22 +13,12 @@
             Húzd az érméket a megfelelő oszlopba!
           </h3>
           <div class="col-6">
-            <!-- <mat-card class="list-group sortable" [sortablejs]="normalList1" [sortablejsOptions]="normalOptions">
-              <h4>
-                Tükörveret
-              </h4> -->
-              <!-- <mat-card class="mt-2 mb-2 list-group-item" *ngFor="let item of normalList1"> -->
-                <!-- <img *ngFor="let item of normalList1" style="width: 100px; height: 100px;" src="assets/coins/u{{1}}.png"> -->
-                <!-- Element {{ item }} -->
-                <!-- <div *ngFor="let item of normalList1" > ALMAAAA</div> -->
-              <!-- </mat-card> -->
-            <!-- </mat-card> -->
             <mat-card>
               <h4>
                 Verdefényes
               </h4> 
               <div class="list-group sortable" [sortablejs]="normalList1" [sortablejsOptions]="normalOptions">
-                <li class="list-group-item" *ngFor="let item of normalList1">
+                <li style="text-align: center; padding: 10px 0;" class="list-group-item" *ngFor="let item of normalList1">
                   <img style="width: 100px; height: 100px;" src="assets/coins/{{item}}.png">
                 </li>
               </div>
@@ -41,20 +31,11 @@
                 Tükörveret
               </h4>
               <div class="list-group sortable" [sortablejs]="normalList2" [sortablejsOptions]="normalOptions">
-                <li class="list-group-item" *ngFor="let item of normalList2">
+                <li style="text-align: center; padding: 10px 0;" class="list-group-item" *ngFor="let item of normalList2">
                   <img style="width: 100px; height: 100px;" src="assets/coins/{{item}}.png">
                 </li>
               </div>
             </mat-card>
-            <!-- <mat-card class="list-group sortable" [sortablejs]="normalList2" [sortablejsOptions]="normalOptions">
-              <h4>
-                Verdefényes
-              </h4> -->
-              <!-- <mat-card class="mt-2 mb-2 list-group-item" *ngFor="let item of normalList2"> -->
-                <!-- <div *ngFor="let item of normalList2" style="background-image: url('assets/coins/u1.png'); width: 100px; height: 100px;"> </div> -->
-                <!-- <div *ngFor="let item of normalList2" > ALMAAAA</div> -->
-              <!-- </mat-card> -->
-            <!-- </mat-card> -->
           </div>
         </div>
       </div>
