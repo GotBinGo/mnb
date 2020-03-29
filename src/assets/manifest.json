@@ -1,6 +1,6 @@
 {
-  "name": "AutSoftHub",
-  "short_name": "AutSoftHub",
+  "name": "Pénz Mosó",
+  "short_name": "Pénz Mosó",
   "icons": [
     {
       "src": "/assets/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "theme_color": "#33335d",
   "background_color": "#33335d",
-  "start_url": "https://autsofthub.azurewebsites.net",
+  "start_url": "http://a.ic.hu",
   "display": "standalone"
 }
