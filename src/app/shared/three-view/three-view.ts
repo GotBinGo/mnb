@@ -399,20 +399,15 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   }
 
   animate() {
-    if (this.renderer) {
-      // window.requestAnimationFrame(() => this.animate());
-      // window.setTimeout(() => this.animate(), 1000 / this.framerate);
-
-      if (this.needRender) {
-        if (this.camPosIndex != null && this.camPosIndex++ < this.cameraAnimationTime) {
-          const camPos = this.cameraCurve.getPoint(1 - (1 - this.camPosIndex / this.cameraAnimationTime) ** 2);
-          this.camera.position.set(camPos.x, camPos.y, camPos.z);
-        }
-        this.locationIndicator && this.locationIndicator.update(+new Date());
-        this.controls.update();
-        this.intersect();
-        this.renderer.render(this.scene, this.camera);
+    if (this.renderer && this.needRender) {
+      if (this.camPosIndex != null && this.camPosIndex++ < this.cameraAnimationTime) {
+        const camPos = this.cameraCurve.getPoint(1 - (1 - this.camPosIndex / this.cameraAnimationTime) ** 2);
+        this.camera.position.set(camPos.x, camPos.y, camPos.z);
       }
+      this.locationIndicator && this.locationIndicator.update(+new Date());
+      this.controls.update();
+      this.intersect();
+      this.renderer.render(this.scene, this.camera);
     }
     window.requestAnimationFrame(() => this.animate());
   }
