@@ -19,14 +19,14 @@ export class ProfilComponent implements OnInit {
       icon: 'fa-gamepad',
       img: 'assets/ages/cow.png',
       date: '2020.03.29.',
-      description: 'Az útazás első állomásához értél, ahol egy játékos feladatban megmérettett a tudásod.'
+      description: 'Az útazás első állomásához értél, ahol egy játékos feladatban megmérettetted a tudásod.'
     },
     {
       title: 'Feladat 3',
       icon: 'fa-award',
       img: 'assets/ages/paper.png',
       date: '2020.03.30.',
-      description: 'Sikersen megoldottad a feladatot, méghozzá rekord idő alatt. Gratulálunk a teljesítményhez!'
+      description: 'Sikeresen megoldottad a feladatot, méghozzá rekord idő alatt. Gratulálunk a teljesítményhez!'
     }
   ].reverse();
 
