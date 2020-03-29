@@ -6,7 +6,7 @@
         <i class="fa fa-fw fa-times text-white"></i>
       </a>
     </div>
-    <div class="modal-body flex-grow-1">
+    <div class="modal-body flex-grow-1 overflow-auto">
       <div *ngIf="popup.room == 'Plane.005'">
         <div class="row">
           <h3 style="padding: 10px;">
@@ -16,7 +16,7 @@
             <mat-card>
               <h4>
                 Verdefényes
-              </h4> 
+              </h4>
               <div class="list-group sortable" [sortablejs]="normalList1" [sortablejsOptions]="normalOptions">
                 <li style="text-align: center; padding: 10px 0;" class="list-group-item" *ngFor="let item of normalList1">
                   <img style="width: 100px; height: 100px;" src="assets/coins/{{item}}.png">
@@ -24,7 +24,7 @@
               </div>
             </mat-card>
           </div>
-        
+
           <div class="col-6">
             <mat-card>
               <h4>
