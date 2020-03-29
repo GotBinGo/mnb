@@ -7,7 +7,12 @@
       </a>
     </div>
     <div class="modal-body flex-grow-1">
-      Content....
+      <div *ngIf="popup.room == 'Plane.005'">
+        a
+      </div>
+      <div *ngIf="popup.room == 'Plane.039'">
+        b
+      </div>
     </div>
     <div class="modal-footer text-right">
       <button class="btn btn-success btn-fw" (click)="close()">Ok</button>

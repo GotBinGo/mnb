@@ -23,6 +23,7 @@ import { youAreHerePoints } from './you-are-here-points';
 import { LocationIndicator } from './location-indicator';
 import { CredentialsService } from '@app/core/authentication/credentials.service';
 import { IdleService } from '@app/core/idle.service';
+import GLTFLoader from 'three-gltf-loader';
 
 const getChildByName = (object: THREE.Object3D, name: string) => {
   let o = object.getObjectByName(name);
@@ -100,23 +101,25 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     const mk = new THREE.Object3D();
     THREE.Object3D.call(mk);
 
-    const radius = 3.005;
-    const sphereRadius = 0.0002;
-    const height = 10.05;
+    const radius = 3;
+    const sphereRadius = 3;
+    const height = 10;
 
     const material = new THREE.MeshPhongMaterial({
       color: 0x12A155
     });
     material.side = THREE.DoubleSide;
 
-    const cone = new THREE.Mesh(new THREE.ConeBufferGeometry(radius, height, 8, 1, true), material);
+    const cone = new THREE.Mesh(new THREE.ConeBufferGeometry(radius, height, 16, 1, true), material);
     cone.position.y = height * 0.5;
     cone.rotation.x = Math.PI;
     cone.position.x = x;
     cone.position.z = z;
 
     const sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(sphereRadius, 16, 8), material);
-    sphere.position.y = height * 0.95 + sphereRadius;
+    sphere.position.y = height;
+    sphere.position.x = x;
+    sphere.position.z = z;
 
 
     mk.add(cone, sphere);
@@ -129,6 +132,27 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
 
   ngOnInit() {
     // this.scene.background = new THREE.Color( 0xeeeeee );
+    const loader = new GLTFLoader().setPath( 'assets/models/gltf/' );
+    loader.load( 'scene.gltf', ( gltf: any ) => {
+
+      gltf.scene.traverse(( child: any ) => {
+        // child.material = new THREE.MeshLambertMaterial({ color: '#ffffff' });
+        // child.emissive.setHex(0xffffff);
+      } );
+      const a = gltf.scene.clone();
+      a.position.x = a.position.x - 45;
+      a.position.y = a.position.y - 8;
+      // a.scale.multiplyScalar(0.4);
+      a.scale.multiplyScalar(3);
+      a.rotation.y = 5;
+      this.scene.add(a);
+      const b = a.clone();
+      b.position.x = b.position.x + 20;
+      b.position.z = b.position.z + 30;
+      b.rotation.y = -5;
+      this.scene.add(b);
+
+    } );
 
     new THREE.FontLoader().load('/assets/fonts/roboto_regular.typeface.json', font => {
       this.font = font;
@@ -189,7 +213,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
     if (event.touches) {
       this.intersect();
       if (this.INTERSECTED) {
-        this.selectedRoom.emit(this.INTERSECTED.name.split('_')[0]);
+        this.selectedRoom.emit(this.INTERSECTED.name);
       }
     }
   };
@@ -197,7 +221,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
   @HostListener('click', ['$event'])
   onDocumentMouseClick = (event: any) => {
     if (this.INTERSECTED) {
-      this.selectedRoom.emit(this.INTERSECTED.name.split('_')[0]);
+      this.selectedRoom.emit(this.INTERSECTED.name);
     }
   };
 
@@ -374,6 +398,7 @@ export abstract class ThreeView implements OnInit, AfterViewInit, OnChanges, OnD
       if (this.INTERSECTED !== intersects[0].object && intersects[0].object.parent && intersects[0].object.parent.name === 'IRODAK') {
         if (this.INTERSECTED) {
           this.INTERSECTED.material.emissive.setHex(this.INTERSECTED.currentHex);
+
         }
         this.INTERSECTED = intersects[0].object;
 

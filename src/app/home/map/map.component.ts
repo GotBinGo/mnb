@@ -9,7 +9,7 @@ import { IdleService } from '@app/core/idle.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  popup = { opened: false };
+  popup = { opened: false, room: '' };
   sel = new ReplaySubject(1);
   targyalo = new ReplaySubject(9); // legyen több ha több a tárgyaló
 
@@ -23,6 +23,15 @@ export class MapComponent implements OnInit {
   }
 
   roomSelected(e: any) {
+    console.log(e);
+    if (e === 'Plane.005') {
+      this.popup.opened = true;
+      this.popup.room = e;
+    }
+    if (e === 'Plane.039') {
+      this.popup.opened = true;
+      this.popup.room = e;
+    }
     this.searchService.updateRoom(e);
   }
 }
