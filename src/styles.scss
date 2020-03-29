@@ -33,6 +33,10 @@
   position: fixed !important;
 }
 
+.text-gray {
+  color: $gray-600;
+}
+
 .home-tabs .mat-tab-body-wrapper {
   flex-grow: 1;
 }
@@ -75,7 +79,6 @@
   opacity: 1 !important;
   // filter: grayscale(100%);
 }
-
 
 .mat-tab-label:focus {
   // filter: grayscale(0%);

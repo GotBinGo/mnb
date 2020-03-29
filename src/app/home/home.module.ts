@@ -11,12 +11,30 @@ import { FormsModule } from '@angular/forms';
 import { MatDatepickerModule, MatTabsModule, MatIconModule, MatCardModule } from '@angular/material';
 import { MapComponent } from './map/map.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
+import { MedalsComponent } from './medals/medals.component';
+import { DivTextComponent } from './div-text/div-text.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatCardModule, HomeRoutingModule, SharedModule, FormsModule, MatDatepickerModule, NgSelectModule, MatTabsModule, MatIconModule],
-  declarations: [HomeComponent, RoomDataComponent, ReserveRoomComponent, MapComponent, MapPopupComponent],
+    MatCardModule,
+    HomeRoutingModule,
+    SharedModule,
+    FormsModule,
+    MatDatepickerModule,
+    NgSelectModule,
+    MatTabsModule,
+    MatIconModule
+  ],
+  declarations: [
+    HomeComponent,
+    RoomDataComponent,
+    ReserveRoomComponent,
+    MapComponent,
+    MapPopupComponent,
+    MedalsComponent,
+    DivTextComponent
+  ],
   entryComponents: [ReserveRoomComponent]
 })
 export class HomeModule {}
