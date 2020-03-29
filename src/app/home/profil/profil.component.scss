@@ -1,0 +1,163 @@
+@import "src/theme/theme.scss";
+@import "src/theme/mixins/screen-size.scss";
+
+.timeline {
+  position: relative;
+  padding: 40px 0 40px 40px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+
+  &::before {
+    border-radius: 0.25rem;
+    background: #dee2e6;
+    bottom: 0;
+    content: "";
+    left: 5px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 4px;
+  }
+
+  .timeline-icon {
+    position: absolute;
+    background: #33335d;
+    height: 40px;
+    width: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    &.bottom {
+      bottom: -5px;
+      left: -13px;
+    }
+
+    &.top {
+      top: -5px;
+      left: -13px;
+    }
+  }
+
+  .add-button {
+    position: absolute;
+    top: -20px;
+    left: -14px;
+  }
+
+  .event-card {
+    border: 0;
+    position: relative;
+
+    & + .event-card {
+      margin-top: 25px;
+    }
+
+    .timeline-icon {
+      top: 5px;
+      left: -53px;
+    }
+
+    .header {
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      padding: 0.7rem 1rem 1rem;
+      background: #f7f7f7;
+      position: relative;
+
+      .title {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 0;
+        margin-top: 5px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .date {
+        display: inline-block;
+        margin-right: 50px;
+        font-weight: 500;
+        font-size: 15px;
+
+        .time {
+          font-weight: 400;
+        }
+
+        @include for-lt-md {
+          font-size: 14px;
+        }
+      }
+
+      .location {
+        display: inline-block;
+        width: 50%;
+        font-size: 15px;
+
+        @include for-lt-md {
+          font-size: 13px;
+          width: 100%;
+        }
+      }
+
+      .edit-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      .delete-button {
+        position: absolute;
+        right: 10px;
+        top: 55px;
+      }
+    }
+
+    .description {
+      position: relative;
+      margin-top: 0;
+      padding: 35px 1rem 1rem 1rem;
+
+      .logo {
+        left: 92%;
+        margin-left: -45px;
+        position: absolute;
+        top: -45px;
+
+        .logo-circle {
+          height: auto;
+          width: 90px;
+          border: 1px solid #ccc;
+        }
+
+        @include for-lt-md {
+          top: -30px;
+          left: 92%;
+
+          .logo-circle {
+            width: 60px;
+          }
+        }
+      }
+    }
+
+    &.past {
+      .timeline-icon {
+        background: #aba8a8;
+      }
+
+      .header {
+        .date {
+          color: #727c7c !important;
+        }
+
+        .title {
+          font-size: 20px;
+          margin-top: 0;
+          color: #727c7c;
+        }
+      }
+    }
+  }
+}
