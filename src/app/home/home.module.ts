@@ -8,7 +8,7 @@ import { RoomDataComponent } from './room-data/room-data.component';
 import { ReserveRoomComponent } from './reserve-room/reserve-room.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-import { MatDatepickerModule, MatTabsModule, MatIconModule, MatCardModule } from '@angular/material';
+import { MatDatepickerModule, MatTabsModule, MatIconModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { MapComponent } from './map/map.component';
 import { MedalsComponent } from './medals/medals.component';
 import { DivTextComponent } from './div-text/div-text.component';
@@ -27,6 +27,7 @@ import { ProfilComponent } from './profil/profil.component';
     NgSelectModule,
     MatTabsModule,
     MatIconModule,
+    MatButtonModule,
     SortablejsModule
   ],
   declarations: [
