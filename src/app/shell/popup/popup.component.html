@@ -1,15 +1,12 @@
 <div class="popup-wrapper" [class.opened]="popup.opened">
   <div class="popup-container d-flex flex-column">
-    <div class="modal-header d-flex justify-content-between align-items-center">
+    <div class="modal-header flex-shrink-0 d-flex justify-content-between align-items-center">
       <h4 class="modal-title text-white">Feladvány</h4>
       <a (click)="close()">
         <i class="fa fa-fw fa-times text-white"></i>
       </a>
     </div>
-    <div *ngIf="!scanned" class="modal-body flex-grow-1">
-
-    </div>
-    <div *ngIf="scanned" class="modal-body flex-grow-1">
+    <div class="modal-body flex-grow-1 overflow-auto">
       <div *ngIf="popup.room == 'Plane.005'">
         <div class="row">
           <h3 style="padding: 10px;">
@@ -19,7 +16,7 @@
             <mat-card>
               <h4>
                 Verdefényes
-              </h4> 
+              </h4>
               <div class="list-group sortable" [sortablejs]="normalList1" [sortablejsOptions]="normalOptions">
                 <li style="text-align: center; padding: 10px 0;" class="list-group-item" *ngFor="let item of normalList1">
                   <img style="width: 100px; height: 100px;" src="assets/coins/{{item}}.png">
@@ -27,7 +24,7 @@
               </div>
             </mat-card>
           </div>
-        
+
           <div class="col-6">
             <mat-card>
               <h4>
@@ -46,7 +43,7 @@
         b
       </div>
     </div>
-    <div class="modal-footer text-right">
+    <div class="modal-footer flex-shrink-0 text-right">
       <button class="btn btn-success btn-fw" (click)="close()">Ok</button>
     </div>
   </div>
