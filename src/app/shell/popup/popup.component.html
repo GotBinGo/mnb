@@ -6,7 +6,17 @@
         <i class="fa fa-fw fa-times text-white"></i>
       </a>
     </div>
-    <div class="modal-body flex-grow-1 overflow-auto">
+    <div *ngIf="!scanned" class="modal-body flex-grow-1 overflow-auto">
+      <div style="    display: flex;
+      margin: auto;
+      width: 80%;
+      height: 70%;
+      background-color: black;">
+        <img id="qr" [ngStyle]="{'transform': 'scale('+scale+')'}" style="margin: auto; transition: all .4s ease-in-out;" src="assets/qr.png">
+      </div>
+      <!-- <button type="button" class="btn btn-primary mx-1" (click)="scanned = true">Beolvas</button> -->
+    </div>
+    <div *ngIf="scanned" class="modal-body flex-grow-1 overflow-auto">
       <div *ngIf="popup.room == 'Plane.005'">
         <div class="row">
           <h3 style="padding: 10px;">
@@ -44,7 +54,9 @@
       </div>
     </div>
     <div class="modal-footer flex-shrink-0 text-right">
-      <button class="btn btn-success btn-fw" (click)="close()">Ok</button>
+      
+      <button *ngIf="!scanned" class="btn btn-success btn-fw" (click)="scanned = true">Beolvas</button>
+      <button *ngIf="scanned" class="btn btn-success btn-fw" (click)="close()">Ok</button>
     </div>
   </div>
 </div>

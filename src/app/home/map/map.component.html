@@ -3,8 +3,9 @@
   <div class="flex-grow-1">
     <app-three-view (selectedRoom)="roomSelected($event)" [sel]="sel" [targyalo]="targyalo">
     </app-three-view>
-    <button mat-fab style="position: absolute; bottom: 10px; right: 10px; outline: none">
-      <i class="fas fa-fw fa-qrcode"></i>
+    <button (click)="roomSelected('Plane.005')" mat-fab style="position: absolute; bottom: 10px; right: 10px; outline: none">
+      <!-- <i class="fas fa-fw fa-qrcode"></i> -->
+      <img src="assets/qr.svg" style="color: white; filter: invert(1); width: 26px; height: 26px; margin-top: -2px;">
     </button>
   </div>
 </div>
