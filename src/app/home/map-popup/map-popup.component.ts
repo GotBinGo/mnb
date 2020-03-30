@@ -8,6 +8,7 @@ import { SortablejsOptions } from 'ngx-sortablejs';
 })
 export class MapPopupComponent implements OnInit {
   @Input() popup: any;
+  scanned = true;
   normalList1 = [
     'p1',
     'p2',
@@ -25,7 +26,9 @@ export class MapPopupComponent implements OnInit {
   };
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit( ) {
+    this.scanned = true;
+  }
 
   close() {
     this.popup.opened = false;

@@ -6,7 +6,10 @@
         <i class="fa fa-fw fa-times text-white"></i>
       </a>
     </div>
-    <div class="modal-body flex-grow-1">
+    <div *ngIf="!scanned" class="modal-body flex-grow-1">
+
+    </div>
+    <div *ngIf="scanned" class="modal-body flex-grow-1">
       <div *ngIf="popup.room == 'Plane.005'">
         <div class="row">
           <h3 style="padding: 10px;">
